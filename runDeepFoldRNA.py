@@ -53,7 +53,7 @@ def generate_input(input_dir):
         fp.write(sequence)
         fp.close()
         
-        cmd = '. ' + home_dir + '/conda_local/conda/etc/profile.d/conda.sh && conda activate venv && python3 ' + bin_dir + "/SPOT-RNA-1D/run.py --seq_file " + input_dir + "/angles/seq.fasta --save_outputs " + input_dir + "/angles"
+        cmd = 'python3 ' + bin_dir + "/SPOT-RNA-1D/run.py --seq_file " + input_dir + "/angles/seq.fasta --save_outputs " + input_dir + "/angles"
         subprocess.call(cmd, shell=True, executable='/bin/bash')
         
         cmd = "perl " + bin_dir + "/parse_angles.pl " + input_dir + "/angles/angles.txt " + input_dir
